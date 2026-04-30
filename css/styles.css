@@ -1,0 +1,74 @@
+:root {
+    --background: #050509;
+    --primary: #8b5cf6;
+    --accent: #3b82f6;
+    --glass: rgba(15, 15, 25, 0.6);
+    --glass-border: rgba(139, 92, 246, 0.15);
+}
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--background);
+    color: #f1f5f9;
+    min-height: 100vh;
+    background-image: 
+        radial-gradient(circle at 10% 10%, rgba(139, 92, 246, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 90% 10%, rgba(59, 130, 246, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 50% 90%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+    background-attachment: fixed;
+}
+.nexum-glass {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+.nexum-glow {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+    transition: all 0.3s ease;
+}
+.nexum-glow:hover {
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.4);
+    transform: translateY(-2px);
+}
+.nexum-gradient-text {
+    background: linear-gradient(135deg, #a78bfa 0%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.nav-link.active {
+    background: rgba(139, 92, 246, 0.15);
+    border-color: rgba(139, 92, 246, 0.3);
+    color: #fff;
+}
+.nav-link.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 25%;
+    height: 50%;
+    width: 3px;
+    background: #8b5cf6;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 0 10px #8b5cf6;
+}
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+}
+.animate-pulse-slow {
+    animation: pulse 3s infinite ease-in-out;
+}
+.flashcard-inner {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+.flashcard.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+}
+.flashcard-front, .flashcard-back {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+.flashcard-back {
+    transform: rotateY(180deg);
+}
