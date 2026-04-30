@@ -1,13 +1,5 @@
 const GROQ_API_KEY = "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"; // Asegúrate de mantener esto en secreto si publicas la web
-let GROQ_API_KEY = localStorage.getItem('nexum_groq_api_key');
-if (!GROQ_API_KEY) {
-    GROQ_API_KEY = prompt("Para usar las funciones de IA (Análisis y Debate), por favor ingresa tu API Key de Groq (puedes obtenerla gratis en console.groq.com):");
-    if (GROQ_API_KEY) {
-        localStorage.setItem('nexum_groq_api_key', GROQ_API_KEY);
-    } else {
         alert("Sin API Key, las funciones de Inteligencia Artificial no estarán disponibles. Puedes recargar la página para ingresarla más tarde.");
-    }
-}
 const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
 const MODEL = "llama-3.3-70b-versatile";
 
